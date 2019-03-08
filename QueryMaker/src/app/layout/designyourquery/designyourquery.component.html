@@ -1,0 +1,29 @@
+<div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
+  <div fxFlex>
+    <app-stat
+      [bgClass]="'danger'"
+      [icon]="'dashboard'"
+      [count]="13"
+      [id]="'deleteDuplicate'"
+      (actioncount)="getActioncount($event)"
+      [label]="'Remove duplicate entry!'"
+    ></app-stat>
+  </div>
+  <div fxFlex>
+    <app-stat [bgClass]="'warn'" [icon]="'view_list'" [count]="12" [id]="'copyData'" [label]="'New task!'"></app-stat>
+  </div>
+</div>
+<div fxFlex *ngIf="count == 1">
+  <div fxFlex fxLayoutGap="20px">
+    <mat-form-field>
+      <input matInput placeholder="Table Name" />
+    </mat-form-field>
+ 
+    <mat-form-field>
+      <input matInput placeholder="Fields(ex. Id1,Id2)" />
+    </mat-form-field>
+  </div>
+  <div fxFlex fxLayoutGap="20px">
+        <button mat-raised-button color="accent" (click)="createQuery($event)" >Create Query</button>
+  </div>
+</div>
