@@ -19,8 +19,7 @@ export class StatComponent implements OnInit {
   ngOnInit() {}
 
   showControl() {
-      debugger;
-    let data = {};
+    const data = {};
     switch (this.id) {
       case 'deleteDuplicate':
         data['actioncount'] = 1;

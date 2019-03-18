@@ -14,16 +14,25 @@
   </div>
 </div>
 <div fxFlex *ngIf="count == 1">
-  <div fxFlex fxLayoutGap="20px">
-    <mat-form-field>
-      <input matInput placeholder="Table Name" />
-    </mat-form-field>
- 
-    <mat-form-field>
-      <input matInput placeholder="Fields(ex. Id1,Id2)" />
-    </mat-form-field>
-  </div>
-  <div fxFlex fxLayoutGap="20px">
-        <button mat-raised-button color="accent" (click)="createQuery($event)" >Create Query</button>
-  </div>
+  <form class="login-form" fxFlex [formGroup]="FrmGrp">
+    <div fxFlex fxLayoutGap="20px">
+      <mat-form-field>
+        <input matInput placeholder="Table Name" formControlName="TableName"
+         [ngClass]="{ 'is-invalid': formFields.TableName.errors }" />
+        <mat-error *ngIf="!!formFields.TableName.errors">
+          <mat-error *ngIf="!!formFields.TableName.errors.required">Table Name is required</mat-error>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Fields(ex. Id1,Id2)" formControlName="Fields" [ngClass]="{ 'is-invalid': formFields.Fields.errors }" />
+        <mat-error *ngIf="!!formFields.Fields.errors">
+            <mat-error *ngIf="!!formFields.Fields.errors.required">Fields is required</mat-error>
+          </mat-error>
+      </mat-form-field>
+    </div>
+    <div fxFlex fxLayoutGap="20px">
+      <button mat-raised-button color="accent" [disabled]="!FrmGrp.valid" (click)="createQuery(FrmGrp.value)">Create Query</button>
+    </div>
+  </form>
 </div>

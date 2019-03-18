@@ -1,38 +1,50 @@
 <div class="login-page">
-    <div class="content">
-        <!-- <h1 class="app-name">Sb Admin Material</h1> -->
-        <form class="login-form" fxFlex  >
-            <div class="text-center">
-                <h2 class="app-name">Query Maker</h2>
-            </div>
-            <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
-                <div fxFlexFill>
-                    <mat-form-field class="w-100">
-                        <input matInput placeholder="Email">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
-                <div fxFlexFill>
-                    <mat-form-field class="w-100">
-                        <input matInput type="password" placeholder="Password">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div fxFlex  fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
-                <div fxFlex>
-                    <mat-checkbox color="primary">Remember Me</mat-checkbox>
-                </div>
-                <div fxFlex  fxLayoutAlign="end">
-                    <a href="javascript:void(0)">Forget Password</a>
-                </div>
-            </div>
-            <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
-                <div fxFlexFill>
-                    <button mat-raised-button color="primary" class="w-100" (click)="onLogin()">Login</button>
-                </div>
-            </div>
-
-        </form>
-    </div>
+  <div class="content">
+    <form class="login-form" fxFlex [formGroup]="FrmLogin">
+      <div class="text-center">
+        <h2 class="app-name">Query Maker</h2>
+      </div>
+      <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Email" formControlName="Username" [ngClass]="{ 'is-invalid': formFields.Username.errors }" />
+            <mat-error *ngIf="!!formFields.Username.errors">
+                <mat-error *ngIf="!!formFields.Username.errors.required">Email is required</mat-error>
+                <mat-error *ngIf="!!formFields.Username.errors.email">Email must be a valid email address</mat-error>
+              </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <input
+              matInput
+              type="password"
+              placeholder="Password"
+              formControlName="Password"
+              [ngClass]="{ 'is-invalid': formFields.Password.errors }"
+            />
+            <mat-error  *ngIf="!!formFields.Password.errors">
+                <mat-error  *ngIf="!!formFields.Password.errors.required">Password is required</mat-error >
+                <mat-error  *ngIf="!!formFields.Password.errors.minlength">Password must be at least 6 characters</mat-error >
+              </mat-error >
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
+        <div fxFlex>
+          <mat-checkbox color="primary">Remember Me</mat-checkbox>
+        </div>
+        <div fxFlex fxLayoutAlign="end">
+          <a href="javascript:void(0)">Forget Password</a>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+        <div fxFlexFill>
+          <button mat-raised-button color="primary" class="w-100" (click)="onLogin(FrmLogin.value)">Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

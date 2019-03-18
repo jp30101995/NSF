@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StatComponent } from '../../shared/modules/stat/stat.component';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { DesignyourqueryService } from './designyourquery.service';
+import { LoginResponse } from '../../login/login';
 
 @Component({
   selector: 'app-designyourquery',
@@ -8,15 +10,14 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./designyourquery.component.scss']
 })
 export class DesignyourqueryComponent implements OnInit {
-public count;
-queryForm:any;
-
-  constructor(private formBuilder:FormBuilder) {}
+  public count;
+  FrmGrp: FormGroup;
+  constructor(private formBuilder: FormBuilder, private designyourqueryService: DesignyourqueryService) {}
 
   ngOnInit() {
-
-    this.queryForm=  this.formBuilder.group({
-
+    this.FrmGrp = this.formBuilder.group({
+      TableName: ['', Validators.required],
+      Fields: ['', Validators.required]
     });
   }
 
@@ -24,7 +25,26 @@ queryForm:any;
     this.count = data.actioncount;
   }
 
-  createQuery(objEvent){
-    
+  get formFields() {
+    return this.FrmGrp.controls;
+  }
+
+  createQuery() {
+    const response = this.designyourqueryService.duplicateData(this.FrmGrp.value).subscribe(
+      (data: LoginResponse) => {
+
+        // if (data['ErrorCode'] === 200) {
+        //   localStorage.setItem('authToken', data['Message']);
+        //   localStorage.setItem('isLoggedin', 'true');
+        //   //this.router.navigate(['/dashboard']);
+        // } else {
+        //    //this.notificationService.openSnackbar(data['Message']);
+        //   console.log(data['Message']);
+        // }
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }
