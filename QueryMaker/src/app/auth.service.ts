@@ -11,7 +11,11 @@ export class AuthService {
   url = 'http://10.33.16.14:8087/api/Authenticate';
   constructor(private http: HttpClient) {}
   getAuthorizationToken() {
-      return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlF1ZXJ5TWFrZXJBSiIsIm5iZiI6MTU1MjY1MzcxNywiZXhwIjoxNTUzMjU4NTE3LCJpYXQiOjE1NTI2NTM3MTcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAxOTEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMTkxIn0.394JzE68MUEM0p3YxRXn3UwQtYbRV21JUH87RVypD3A';
+    if(localStorage.getItem('authToken')){
+      return localStorage.getItem('authToken');
+    }else{
+      return "";
+    }
     // if (localStorage.getItem('authToken')) {
     //   // return localStorage.getItem('authToken');
     //   return true;
