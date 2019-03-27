@@ -11,10 +11,10 @@ export class AuthService {
   url = 'http://10.33.16.14:8087/api/Authenticate';
   constructor(private http: HttpClient) {}
   getAuthorizationToken() {
-    if(localStorage.getItem('authToken')){
+    if (localStorage.getItem('authToken')) {
       return localStorage.getItem('authToken');
-    }else{
-      return "";
+    } else {
+      return '';
     }
     // if (localStorage.getItem('authToken')) {
     //   // return localStorage.getItem('authToken');
