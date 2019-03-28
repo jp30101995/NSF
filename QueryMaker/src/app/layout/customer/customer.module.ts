@@ -14,7 +14,8 @@ import { MatInputModule } from '@angular/material';
     CustomerRoutingModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ]
 })
 export class CustomerModule { }

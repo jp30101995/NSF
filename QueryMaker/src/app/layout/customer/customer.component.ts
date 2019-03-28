@@ -27,6 +27,7 @@ export class CustomerComponent implements OnInit {
       (data: CustomerList) => {
         debugger;
         const custs: Customer[] = [];
+        debugger;
         for (let i = 1; i <= 100; i++) {
           custs.push(data.Customers[i]);
         }
