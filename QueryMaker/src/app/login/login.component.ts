@@ -36,9 +36,11 @@ export class LoginComponent implements OnInit {
     // if(this.FrmLogin.su){
     //     this.isLogin=false;
     // }
+    debugger;
     const login = this.FrmLogin.value;
     const result = this.loginService.login(login).subscribe(
       (data: LoginResponse) => {
+        debugger;
         if (data['ErrorCode'] === 200) {
           localStorage.setItem('authToken', data['Message']);
           localStorage.setItem('isLoggedin', 'true');
