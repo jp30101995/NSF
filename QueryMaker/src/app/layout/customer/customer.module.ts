@@ -10,8 +10,9 @@ import {
   MatProgressBarModule, MatRadioModule, MatSelectModule, MatSliderModule, MatSnackBarModule,
   MatTooltipModule
 } from '@angular/material';
+import { AddcustomerComponent } from './addcustomer/addcustomer.component';
 @NgModule({
-  declarations: [CustomerComponent],
+  declarations: [CustomerComponent, AddcustomerComponent],
   imports: [
     CommonModule,
     CustomerRoutingModule,
@@ -20,7 +21,11 @@ import {
     MatInputModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
-  ]
+    MatIconModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    AddcustomerComponent
+]
 })
 export class CustomerModule { }

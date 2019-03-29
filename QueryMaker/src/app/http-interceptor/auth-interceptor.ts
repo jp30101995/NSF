@@ -11,7 +11,6 @@ export class AuthInterceptor implements HttpInterceptor {
     // Get the auth token from the service.
     const authToken = this.auth.getAuthorizationToken();
      // localStorage.getItem('authToken');
-    debugger;
     //  .subscribe(
     //     (data: LoginResponse) => {
     //         console.log(data['Message']);

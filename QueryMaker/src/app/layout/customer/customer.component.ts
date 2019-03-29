@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerService } from './customer.service';
 import { Customer, CustomerList } from './customer';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { forEach } from '../../../../node_modules/@angular/router/src/utils/collection';
+import { MatPaginator, MatSort, MatTableDataSource, MatDialog, MatDialogConfig } from '@angular/material';
+import { AddcustomerComponent } from './addcustomer/addcustomer.component';
+
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -14,30 +15,25 @@ export class CustomerComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService, public dialog: MatDialog) {
     this.getAllCustomers();
   }
 
-  ngOnInit() {
+  ngOnInit() {}
 
+  openDialog() {
+    const dialogRef = this.dialog.open(AddcustomerComponent, {
+      width: '600px',
+      data: {}
+    });
+    dialogRef.afterClosed().subscribe(result => {});
   }
 
   getAllCustomers() {
-    const result = this.customerService.getList(localStorage.getItem("id")).subscribe(
+    const result = this.customerService.getList(localStorage.getItem('id')).subscribe(
       (data: CustomerList) => {
         const custs: Customer[] = [];
-        debugger;
-        // data.forEach(element => {
-
-        // });
-        // data.array.forEach(element => {
-
-        // });
-        // for (let i = 1; i <= data; i++) {
-        //   custs.push(data[i]);
-        // }
-
-        for (var v in data) {
+        for (const v in data) {
           custs.push(data[v]);
         }
         this.dataSource = new MatTableDataSource(custs);
