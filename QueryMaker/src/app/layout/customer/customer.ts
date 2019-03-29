@@ -4,7 +4,7 @@ export class Customer {
     Id: number;
     Name: string;
     Email: string;
-    ContactNo: number;
+    ContactNo: string;
     Password: string;
     Type: number;
     ParentId: number;

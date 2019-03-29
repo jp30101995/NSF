@@ -10,6 +10,6 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
 
   getList(id: string): Observable<CustomerList> {
-    return this.http.get<CustomerList>(this.url + 'GetCustomer?parentId'+id, {});
+    return this.http.get<CustomerList>(this.url + 'GetCustomer?parentId='+1, {});
   }
 }

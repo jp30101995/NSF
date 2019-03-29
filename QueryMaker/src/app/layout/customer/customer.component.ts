@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerService } from './customer.service';
 import { Customer, CustomerList } from './customer';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { forEach } from '../../../../node_modules/@angular/router/src/utils/collection';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -18,20 +19,30 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+
   }
 
   getAllCustomers() {
     const result = this.customerService.getList(localStorage.getItem("id")).subscribe(
       (data: CustomerList) => {
-        debugger;
         const custs: Customer[] = [];
         debugger;
-        for (let i = 1; i <= 100; i++) {
-          custs.push(data.Customers[i]);
+        // data.forEach(element => {
+
+        // });
+        // data.array.forEach(element => {
+
+        // });
+        // for (let i = 1; i <= data; i++) {
+        //   custs.push(data[i]);
+        // }
+
+        for (var v in data) {
+          custs.push(data[v]);
         }
         this.dataSource = new MatTableDataSource(custs);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       },
       error => {
         console.log(error);
