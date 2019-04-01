@@ -11,6 +11,7 @@ import {
   MatTooltipModule
 } from '@angular/material';
 import { AddcustomerComponent } from './addcustomer/addcustomer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [CustomerComponent, AddcustomerComponent],
   imports: [
@@ -22,7 +23,9 @@ import { AddcustomerComponent } from './addcustomer/addcustomer.component';
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     AddcustomerComponent

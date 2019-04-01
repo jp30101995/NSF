@@ -22,11 +22,15 @@ export class CustomerComponent implements OnInit {
   ngOnInit() { }
 
   openDialog() {
-    const dialogRef = this.dialog.open(AddcustomerComponent, {
-      width: '600px',
-      data: {}
-    });
-    dialogRef.afterClosed().subscribe(result => { });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      id: 1,
+      title: 'Add Customer'
+    };
+    dialogConfig.width = '500px';
+    // dialogConfig.height = '500px';
+    const dialogRef = this.dialog.open(AddcustomerComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => { this.getAllCustomers(); });
   }
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace

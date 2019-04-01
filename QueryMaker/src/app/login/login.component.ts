@@ -33,21 +33,17 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    // if(this.FrmLogin.su){
-    //     this.isLogin=false;
-    // }
-    debugger;
     const login = this.FrmLogin.value;
     const result = this.loginService.login(login).subscribe(
       (data: LoginResponse) => {
-        debugger;
-        if (data['ErrorCode'] === 200) {
-          localStorage.setItem('authToken', data['Message']);
+        if (data.Response['ErrorCode'] === 200) {
+          localStorage.setItem('authToken', data.Response['Message']);
           localStorage.setItem('isLoggedin', 'true');
+          localStorage.setItem('customerId', data.User['Id'].toString());
+          localStorage.setItem('customerName', data.User['Username']);
           this.router.navigate(['/dashboard']);
         } else {
-          this.notificationService.openSnackbar(data['Message']);
-          console.log(data['Message']);
+          this.notificationService.openSnackbar(data.Response['Message']);
         }
       },
       error => {
