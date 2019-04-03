@@ -17,13 +17,17 @@ const routes: Routes = [
         loadChildren: './dashboard/dashboard.module#DashboardModule'
       },
       {
+        path: 'person',
+        loadChildren: './person/person.module#PersonModule'
+      },
+      {
         path: 'customer',
         loadChildren: './customer/customer.module#CustomerModule'
       },
-      {
-        path: 'designyourquery',
-        loadChildren: './designyourquery/designyourquery.module#DesignyourqueryModule'
-      },
+      // {
+      //   path: 'designyourquery',
+      //   loadChildren: './designyourquery/designyourquery.module#DesignyourqueryModule'
+      // },
       {
         path: 'charts',
         loadChildren: './charts/charts.module#ChartsModule'

@@ -3,11 +3,14 @@
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
             <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard' | translate }}
         </a>
-        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/designyourquery']">
+        <!-- <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/designyourquery']">
             <mat-icon class="sidenav-icon">bar_chart</mat-icon> {{ 'Design Your Query' | translate }}
-        </a>
+        </a> -->
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/customer']">
-            <mat-icon class="sidenav-icon">bar_chart</mat-icon> {{ 'Customer' | translate }}
+            <mat-icon class="sidenav-icon">view_list</mat-icon> {{ 'Customer' | translate }}
+        </a>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/person']">
+            <mat-icon class="sidenav-icon">person</mat-icon> {{ 'Person' | translate }}
         </a>
         <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/charts']">
             <mat-icon class="sidenav-icon">bar_chart</mat-icon> {{ 'Charts' | translate }}

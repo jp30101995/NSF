@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CustomerRoutingModule } from './customer-routing.module';
-import { CustomerComponent } from './customer.component';
+import { PersonRoutingModule } from './person-routing.module';
+import { AddpersonComponent } from './addperson/addperson.component';
+import { PersonComponent } from './person.component';
 import {
   MatBottomSheetModule,
   MatButtonModule,
@@ -23,14 +24,14 @@ import {
   MatTooltipModule,
   MatCheckboxModule
 } from '@angular/material';
-import { AddcustomerComponent } from './addcustomer/addcustomer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [CustomerComponent, AddcustomerComponent],
+  declarations: [PersonComponent, AddpersonComponent],
   imports: [
     CommonModule,
+    CommonModule,
     MatCheckboxModule,
-    CustomerRoutingModule,
+    PersonRoutingModule,
     MatFormFieldModule,
     MatPaginatorModule,
     MatInputModule,
@@ -42,6 +43,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FlexLayoutModule.withConfig({ addFlexToParent: false })
   ],
-  entryComponents: [AddcustomerComponent]
+  entryComponents: [AddpersonComponent]
 })
-export class CustomerModule {}
+export class PersonModule {}

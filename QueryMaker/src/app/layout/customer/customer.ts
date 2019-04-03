@@ -8,6 +8,8 @@ export class Customer {
   Password: string;
   Type: number;
   ParentId: number;
+  Title: string;
+  CommunityName: string;
 }
 export class CustomerList {
   Customers: Customer[];

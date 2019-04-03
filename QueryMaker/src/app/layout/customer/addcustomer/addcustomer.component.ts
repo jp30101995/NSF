@@ -4,13 +4,13 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { CustomerService } from '../customer.service';
 import { LoginResponse } from 'src/app/login/login';
 import { NotificationService } from 'src/app/shared/services/notification.service';
+import { Customer } from '../customer';
 @Component({
   selector: 'app-addcustomer',
   templateUrl: './addcustomer.component.html',
   styleUrls: ['./addcustomer.component.scss']
 })
 export class AddcustomerComponent implements OnInit {
-  title: string;
   frmAddCustomer: FormGroup;
 
   constructor(
@@ -18,10 +18,8 @@ export class AddcustomerComponent implements OnInit {
     private formBuilder: FormBuilder,
     private customerService: CustomerService,
     private notificationService: NotificationService,
-    @Inject(MAT_DIALOG_DATA) public data
-  ) {
-    this.title = data.title;
-  }
+    @Inject(MAT_DIALOG_DATA) public data: Customer
+  ) {}
 
   ngOnInit() {
     this.frmAddCustomer = this.formBuilder.group({
@@ -30,7 +28,8 @@ export class AddcustomerComponent implements OnInit {
       ContactNo: ['', Validators.required],
       CommunityName: ['', Validators.required],
       Type: 2,
-      ParentId: localStorage.getItem('customerId')
+      ParentId: localStorage.getItem('customerId'),
+      Id: this.data.Id
     });
   }
 
