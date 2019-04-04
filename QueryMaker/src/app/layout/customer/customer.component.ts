@@ -64,7 +64,6 @@ export class CustomerComponent implements OnInit {
       };
     }
     dialogConfig.width = '500px';
-    dialogConfig.height = '500px';
     const dialogRef = this.dialog.open(AddcustomerComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       this.getAllCustomers();

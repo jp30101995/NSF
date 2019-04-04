@@ -742,8 +742,10 @@ var PizzaPartyComponent = /** @class */ (function () {
     PizzaPartyComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-pizza-party',
-            template: "\n        <span class=\"example-pizza-party\">\n            Pizza party!!! \uD83C\uDF55\n        </span>\n    ",
-            styles: [".example-pizza-party { color: hotpink; }"]
+            template: "\n    <span class=\"example-pizza-party\">\n      Pizza party!!! \uD83C\uDF55\n    </span>\n  ",
+            styles: [
+                "\n      .example-pizza-party {\n        color: hotpink;\n      }\n    "
+            ]
         })
     ], PizzaPartyComponent);
     return PizzaPartyComponent;
@@ -758,7 +760,8 @@ var SnackBarComponent = /** @class */ (function () {
             duration: 500
         });
     };
-    SnackBarComponent.prototype.ngOnInit = function () { };
+    SnackBarComponent.prototype.ngOnInit = function () {
+    };
     SnackBarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-snack-bar',

@@ -6,6 +6,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { AddpersonComponent } from './addperson/addperson.component';
 import { Person } from './person';
 import { PersonService } from './person.service';
+import { CustomerList, Customer } from '../customer/customer';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',

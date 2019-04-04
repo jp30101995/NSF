@@ -14,68 +14,58 @@ var map = {
 	],
 	"./charts/charts.module": [
 		"./src/app/layout/charts/charts.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~ec8f518f",
+		"default~charts-charts-module~customer-customer-module~dashboard-dashboard-module~forms-forms-module~~fa0541e8",
 		"common",
 		"charts-charts-module"
 	],
+	"./customer/customer.module": [
+		"./src/app/layout/customer/customer.module.ts",
+		"default~charts-charts-module~customer-customer-module~dashboard-dashboard-module~forms-forms-module~~fa0541e8",
+		"common",
+		"customer-customer-module"
+	],
 	"./dashboard/dashboard.module": [
 		"./src/app/layout/dashboard/dashboard.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~ec8f518f",
+		"default~charts-charts-module~customer-customer-module~dashboard-dashboard-module~forms-forms-module~~fa0541e8",
 		"common",
 		"dashboard-dashboard-module"
 	],
-	"./designyourquery/designyourquery.module": [
-		"./src/app/layout/designyourquery/designyourquery.module.ts",
-		"common",
-		"designyourquery-designyourquery-module"
-	],
 	"./forms/forms.module": [
 		"./src/app/layout/forms/forms.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~ec8f518f",
+		"default~charts-charts-module~customer-customer-module~dashboard-dashboard-module~forms-forms-module~~fa0541e8",
 		"common",
 		"forms-forms-module"
 	],
 	"./grid/grid.module": [
 		"./src/app/layout/grid/grid.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~ec8f518f",
+		"default~charts-charts-module~customer-customer-module~dashboard-dashboard-module~forms-forms-module~~fa0541e8",
 		"common",
 		"grid-grid-module"
 	],
 	"./layout/layout.module": [
 		"./src/app/layout/layout.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"common",
 		"layout-layout-module"
 	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~ec8f518f",
+		"default~charts-charts-module~customer-customer-module~dashboard-dashboard-module~forms-forms-module~~fa0541e8",
 		"common",
 		"login-login-module"
 	],
 	"./material-components/material-components.module": [
 		"./src/app/layout/material-components/material-components.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~login-lo~ec8f518f",
+		"default~charts-charts-module~customer-customer-module~dashboard-dashboard-module~forms-forms-module~~fa0541e8",
 		"common",
 		"material-components-material-components-module"
 	],
+	"./person/person.module": [
+		"./src/app/layout/person/person.module.ts",
+		"default~charts-charts-module~customer-customer-module~dashboard-dashboard-module~forms-forms-module~~fa0541e8",
+		"common",
+		"person-person-module"
+	],
 	"./tables/tables.module": [
 		"./src/app/layout/tables/tables.module.ts",
-		"default~charts-charts-module~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-l~973e0ed5",
-		"default~dashboard-dashboard-module~forms-forms-module~grid-grid-module~layout-layout-module~login-lo~7e29be28",
-		"common",
 		"tables-tables-module"
 	]
 };
@@ -201,8 +191,7 @@ var AppComponent = /** @class */ (function () {
         this.translate = translate;
         translate.setDefaultLang('en');
     }
-    AppComponent.prototype.ngOnInit = function () {
-    };
+    AppComponent.prototype.ngOnInit = function () { };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
@@ -239,6 +228,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/fesm5/ngx-translate-http-loader.js");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var _http_interceptor_index__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./http-interceptor/index */ "./src/app/http-interceptor/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -255,14 +247,17 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
 // AoT requires an exported function for factories
 var createTranslateLoader = function (http) {
     /* for development
-    return new TranslateHttpLoader(
-        http,
-        '/start-javascript/sb-admin-material/master/dist/assets/i18n/',
-        '.json'
-    );*/
+      return new TranslateHttpLoader(
+          http,
+          '/start-javascript/sb-admin-material/master/dist/assets/i18n/',
+          '.json'
+      );*/
     return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_7__["TranslateHttpLoader"](http, './assets/i18n/', '.json');
 };
 var AppModule = /** @class */ (function () {
@@ -274,6 +269,7 @@ var AppModule = /** @class */ (function () {
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatSnackBarModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
                 _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_0__["LayoutModule"],
                 _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_1__["OverlayModule"],
@@ -286,13 +282,190 @@ var AppModule = /** @class */ (function () {
                     }
                 })
             ],
-            providers: [],
+            providers: [_auth_service__WEBPACK_IMPORTED_MODULE_11__["AuthService"], _http_interceptor_index__WEBPACK_IMPORTED_MODULE_12__["httpInterceptorProviders"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/auth.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/auth.service.ts ***!
+  \*********************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/** Mock client-side authentication/authorization service */
+var AuthService = /** @class */ (function () {
+    function AuthService(http) {
+        this.http = http;
+        this.url = 'http://10.33.16.14:8087/api/Authenticate';
+    }
+    AuthService.prototype.getAuthorizationToken = function () {
+        if (localStorage.getItem('authToken')) {
+            return localStorage.getItem('authToken');
+        }
+        else {
+            return '';
+        }
+        // if (localStorage.getItem('authToken')) {
+        //   // return localStorage.getItem('authToken');
+        //   return true;
+        // } else {
+        // const httpOptions = {
+        //   headers: new HttpHeaders({
+        //     'Content-Type': 'application/json'
+        //   })
+        // };
+        // // return '';
+        // this.http.post<string>(this.url, {}, httpOptions)
+        // .subscribe(
+        //   (data: string) => {
+        //     localStorage.setItem('authToken', data);
+        //      //return data['message'];
+        //   },
+        //   error => {
+        //     console.log(error);
+        //      //return '';
+        //   }
+        // );
+    };
+    AuthService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], AuthService);
+    return AuthService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/http-interceptor/auth-interceptor.ts":
+/*!******************************************************!*\
+  !*** ./src/app/http-interceptor/auth-interceptor.ts ***!
+  \******************************************************/
+/*! exports provided: AuthInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthInterceptor", function() { return AuthInterceptor; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth.service */ "./src/app/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AuthInterceptor = /** @class */ (function () {
+    function AuthInterceptor(auth) {
+        this.auth = auth;
+    }
+    AuthInterceptor.prototype.intercept = function (req, next) {
+        // Get the auth token from the service.
+        var authToken = this.auth.getAuthorizationToken();
+        // localStorage.getItem('authToken');
+        //  .subscribe(
+        //     (data: LoginResponse) => {
+        //         console.log(data['Message']);
+        //       // return localStorage.setItem('authToken', data['Message']);
+        //     },
+        //     error => {
+        //       console.log(error);
+        //     }
+        //   );
+        /*
+        * The verbose way:
+        // Clone the request and replace the original headers with
+        // cloned headers, updated with the authorization.
+        const authReq = req.clone({
+          headers: req.headers.set('Authorization', authToken)
+        });
+        */
+        // Clone the request and set the new header in one step.
+        var authReq = req.clone({ setHeaders: { Authorization: authToken, 'Content-Type': 'application/json' } });
+        // send cloned request with header to the next handler.
+        return next.handle(authReq);
+    };
+    AuthInterceptor = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+    ], AuthInterceptor);
+    return AuthInterceptor;
+}());
+
+/*
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
+
+
+/***/ }),
+
+/***/ "./src/app/http-interceptor/index.ts":
+/*!*******************************************!*\
+  !*** ./src/app/http-interceptor/index.ts ***!
+  \*******************************************/
+/*! exports provided: httpInterceptorProviders */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpInterceptorProviders", function() { return httpInterceptorProviders; });
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _auth_interceptor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth-interceptor */ "./src/app/http-interceptor/auth-interceptor.ts");
+/* "Barrel" of Http Interceptors */
+
+
+// import { CachingInterceptor } from './caching-interceptor';
+// import { EnsureHttpsInterceptor } from './ensure-https-interceptor';
+// import { LoggingInterceptor } from './logging-interceptor';
+// import { NoopInterceptor } from './noop-interceptor';
+// import { TrimNameInterceptor } from './trim-name-interceptor';
+// import { UploadInterceptor } from './upload-interceptor';
+/** Http interceptor providers in outside-in order */
+var httpInterceptorProviders = [
+    //   { provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor, multi: true },
+    //   { provide: HTTP_INTERCEPTORS, useClass: EnsureHttpsInterceptor, multi: true },
+    //   { provide: HTTP_INTERCEPTORS, useClass: TrimNameInterceptor, multi: true },
+    { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HTTP_INTERCEPTORS"], useClass: _auth_interceptor__WEBPACK_IMPORTED_MODULE_1__["AuthInterceptor"], multi: true },
+];
+/*
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
 
 
 /***/ }),
@@ -406,7 +579,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\AJ\MyQuery\QueryMaker\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\AJ\QueryMaker\src\main.ts */"./src/main.ts");
 
 
 /***/ })

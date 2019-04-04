@@ -1,41 +1,62 @@
 <h2 mat-dialog-title>{{ data.Title }}</h2>
-<mat-dialog-content [formGroup]="frmAddCustomer" >
-  <div  fxLayoutGap="20px">
+<mat-dialog-content [formGroup]="frmAddCustomer" class="mat-typography">
+  <div fxLayoutGap="20px">
     <mat-form-field>
-      <input matInput placeholder="Name" formControlName="Name" [ngClass]="{ 'is-invalid': formFields.Name.errors }" [(ngModel)]="data.Name"/>
+      <input
+        matInput
+        placeholder="Name"
+        formControlName="Name"
+        [ngClass]="{ 'is-invalid': formFields.Name.errors }"
+        [(ngModel)]="data.Name"
+      />
       <mat-error *ngIf="!!formFields.Name.errors">
         <mat-error *ngIf="!!formFields.Name.errors.required">Name is required</mat-error>
       </mat-error>
     </mat-form-field>
-  </div>
-  <div  fxLayoutGap="20px">
     <mat-form-field>
-      <input matInput placeholder="Email" formControlName="Email"  [(ngModel)]="data.Email" [ngClass]="{ 'is-invalid': formFields.Email.errors }" />
-      <mat-error *ngIf="!!formFields.Email.errors">
-        <mat-error *ngIf="!!formFields.Email.errors.required">Email is required</mat-error>
+      <input
+        matInput
+        placeholder="Community Name"
+        formControlName="CommunityName"
+        [(ngModel)]="data.CommunityName"
+        [ngClass]="{ 'is-invalid': formFields.CommunityName.errors }"
+      />
+      <mat-error *ngIf="!!formFields.CommunityName.errors">
+        <mat-error *ngIf="!!formFields.CommunityName.errors.required">Community Name is required</mat-error>
       </mat-error>
     </mat-form-field>
   </div>
-  <div  fxLayoutGap="20px">
+  <div fxLayoutGap="20px">
     <mat-form-field>
-      <input matInput placeholder="ContactNo" formControlName="ContactNo" [(ngModel)]="data.ContactNo" [ngClass]="{ 'is-invalid': formFields.ContactNo.errors }" />
+      <input
+        matInput
+        placeholder="Email"
+        formControlName="Email"
+        [(ngModel)]="data.Email"
+        [ngClass]="{ 'is-invalid': formFields.Email.errors }"
+      />
+      <mat-error *ngIf="!!formFields.Email.errors">
+        <mat-error *ngIf="!!formFields.Email.errors.required">Email is required</mat-error>
+        <mat-error *ngIf="!!formFields.Email.errors.email">Email must be a valid email address</mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="ContactNo"
+        formControlName="ContactNo"
+        [(ngModel)]="data.ContactNo"
+        [ngClass]="{ 'is-invalid': formFields.ContactNo.errors }"
+      />
       <mat-error *ngIf="!!formFields.ContactNo.errors">
         <mat-error *ngIf="!!formFields.ContactNo.errors.required">ContactNo is required</mat-error>
       </mat-error>
     </mat-form-field>
   </div>
-  <div  fxLayoutGap="20px">
-      <mat-form-field>
-        <input matInput placeholder="Community Name" formControlName="CommunityName" [(ngModel)]="data.CommunityName" [ngClass]="{ 'is-invalid': formFields.CommunityName.errors }" />
-        <mat-error *ngIf="!!formFields.CommunityName.errors">
-          <mat-error *ngIf="!!formFields.CommunityName.errors.required">Community Name is required</mat-error>
-        </mat-error>
-      </mat-form-field>
-    </div>
-  <div  fxLayoutGap="20px">
-    <mat-dialog-actions>
-      <button class="mat-raised-button" (click)="close()">Close</button>
-      <button class="mat-raised-button mat-primary" [disabled]="!frmAddCustomer.valid"  (click)="saveCustomer()">Save</button>
-    </mat-dialog-actions>
-  </div>
 </mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" [mat-dialog-close]="true" [disabled]="!frmAddCustomer.valid" (click)="saveCustomer()">
+    Save
+  </button>
+</mat-dialog-actions>

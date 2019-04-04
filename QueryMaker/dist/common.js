@@ -1,38 +1,34 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"],{
 
-/***/ "./src/app/layout/designyourquery/designyourquery.component.html":
-/*!***********************************************************************!*\
-  !*** ./src/app/layout/designyourquery/designyourquery.component.html ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  designyourquery works!\n</p>\n"
-
-/***/ }),
-
-/***/ "./src/app/layout/designyourquery/designyourquery.component.scss":
-/*!***********************************************************************!*\
-  !*** ./src/app/layout/designyourquery/designyourquery.component.scss ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xheW91dC9kZXNpZ255b3VycXVlcnkvZGVzaWdueW91cnF1ZXJ5LmNvbXBvbmVudC5zY3NzIn0= */"
-
-/***/ }),
-
-/***/ "./src/app/layout/designyourquery/designyourquery.component.ts":
-/*!*********************************************************************!*\
-  !*** ./src/app/layout/designyourquery/designyourquery.component.ts ***!
-  \*********************************************************************/
-/*! exports provided: DesignyourqueryComponent */
+/***/ "./src/app/shared/apiurl.ts":
+/*!**********************************!*\
+  !*** ./src/app/shared/apiurl.ts ***!
+  \**********************************/
+/*! exports provided: Apiurl */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DesignyourqueryComponent", function() { return DesignyourqueryComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Apiurl", function() { return Apiurl; });
+var Apiurl = {
+    apiurl: 'http://10.33.16.14:8087/api/User/'
+};
+
+
+/***/ }),
+
+/***/ "./src/app/shared/services/notification.service.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/shared/services/notification.service.ts ***!
+  \*********************************************************/
+/*! exports provided: NotificationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationService", function() { return NotificationService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -43,20 +39,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var DesignyourqueryComponent = /** @class */ (function () {
-    function DesignyourqueryComponent() {
+
+var NotificationService = /** @class */ (function () {
+    function NotificationService(snackBar) {
+        this.snackBar = snackBar;
     }
-    DesignyourqueryComponent.prototype.ngOnInit = function () {
+    NotificationService.prototype.openSnackbar = function (message) {
+        this.snackBar.open(message, 'X', { duration: 5000, horizontalPosition: 'center', verticalPosition: 'top' });
     };
-    DesignyourqueryComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-designyourquery',
-            template: __webpack_require__(/*! ./designyourquery.component.html */ "./src/app/layout/designyourquery/designyourquery.component.html"),
-            styles: [__webpack_require__(/*! ./designyourquery.component.scss */ "./src/app/layout/designyourquery/designyourquery.component.scss")]
+    NotificationService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [])
-    ], DesignyourqueryComponent);
-    return DesignyourqueryComponent;
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSnackBar"]])
+    ], NotificationService);
+    return NotificationService;
 }());
 
 
