@@ -1,0 +1,9 @@
+D:\SourceCode\Learning\WebAPI\Query.WebAPI\Query.Models\bin\Debug\Query.Models.dll
+D:\SourceCode\Learning\WebAPI\Query.WebAPI\Query.Models\bin\Debug\Query.Models.pdb
+D:\SourceCode\Learning\WebAPI\Query.WebAPI\Query.Models\obj\Debug\Query.Models.dll
+D:\SourceCode\Learning\WebAPI\Query.WebAPI\Query.Models\obj\Debug\Query.Models.pdb
+D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Models\bin\Debug\Query.Models.dll
+D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Models\bin\Debug\Query.Models.pdb
+D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Models\obj\Debug\Query.Models.dll
+D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Models\obj\Debug\Query.Models.pdb
+D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Models\obj\Debug\Query.Models.csprojResolveAssemblyReference.cache

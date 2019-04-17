@@ -16,6 +16,10 @@ using Microsoft.Owin.Security.OAuth;
 using Query.WebAPI.Models;
 using Query.WebAPI.Providers;
 using Query.WebAPI.Results;
+using Query.Models;
+using Query.Common;
+using System.Net;
+using Query.Business;
 
 namespace Query.WebAPI.Controllers
 {
@@ -25,9 +29,10 @@ namespace Query.WebAPI.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
-
+        private readonly CustomerBL _customerBL;
         public AccountController()
         {
+            _customerBL = new CustomerBL();
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -36,7 +41,7 @@ namespace Query.WebAPI.Controllers
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
         }
-
+        
         public ApplicationUserManager UserManager
         {
             get
@@ -65,6 +70,8 @@ namespace Query.WebAPI.Controllers
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
         }
+
+
 
         // POST api/Account/Logout
         [Route("Logout")]
@@ -125,7 +132,7 @@ namespace Query.WebAPI.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -258,9 +265,9 @@ namespace Query.WebAPI.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -368,7 +375,7 @@ namespace Query.WebAPI.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }
@@ -420,6 +427,38 @@ namespace Query.WebAPI.Controllers
             return null;
         }
 
+        [Authorize]
+        [Route("AddCustomer")]
+        public async Task<ResponseModel> AddCostumer(CustomerModel customer)
+        {
+            var user = new ApplicationUser() { UserName = customer.Email, Email = customer.Email };
+
+            IdentityResult result = await UserManager.CreateAsync(user, customer.Password);
+            ResponseModel res = new ResponseModel();
+            if (!result.Succeeded)
+            {
+                //return GetErrorResult(result);
+                res.ErrorCode = (int)HttpStatusCode.InternalServerError;
+                res.Message = QueryResource.InvalidResponse;
+            }
+            else
+            {
+                customer.UserId = user.Id;
+                if (_customerBL.AddCustomer(customer))
+                {
+                    res.ErrorCode = 200;
+                    res.Message = QueryResource.SuccessfulMsg;
+                    //return Ok();
+                }
+                else
+                {
+                    res.ErrorCode = (int)HttpStatusCode.InternalServerError;
+                    res.Message = QueryResource.InvalidResponse;
+                    //return GetErrorResult(result);
+                }
+            }
+            return res;
+        }
         private class ExternalLoginData
         {
             public string LoginProvider { get; set; }
@@ -488,6 +527,7 @@ namespace Query.WebAPI.Controllers
                 return HttpServerUtility.UrlTokenEncode(data);
             }
         }
+        
 
         #endregion
     }

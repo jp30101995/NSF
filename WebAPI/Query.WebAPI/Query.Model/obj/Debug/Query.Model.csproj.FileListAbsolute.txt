@@ -1,0 +1,4 @@
+D:\SourceCode\Learning\WebAPI\Query.WebAPI\Query.Model\bin\Debug\Query.Model.dll
+D:\SourceCode\Learning\WebAPI\Query.WebAPI\Query.Model\bin\Debug\Query.Model.pdb
+D:\SourceCode\Learning\WebAPI\Query.WebAPI\Query.Model\obj\Debug\Query.Model.dll
+D:\SourceCode\Learning\WebAPI\Query.WebAPI\Query.Model\obj\Debug\Query.Model.pdb
