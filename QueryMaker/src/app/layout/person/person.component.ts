@@ -6,7 +6,6 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { AddpersonComponent } from './addperson/addperson.component';
 import { Person } from './person';
 import { PersonService } from './person.service';
-import { CustomerList, Customer } from '../customer/customer';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
@@ -60,15 +59,16 @@ export class PersonComponent implements OnInit {
         Title: 'Add Person',
         FirstName: '',
         MidddleName: '',
+        LastName: '',
         Phone: '',
-        Gender: ''
+        // Gender: ''
       };
     }
-    dialogConfig.width = '500px';
+    dialogConfig.width = '700px';
     dialogConfig.height = '500px';
     const dialogRef = this.dialog.open(AddpersonComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
-      this.getAllPerson();
+      // this.getAllPerson();
     });
   }
   applyFilter(filterValue: string) {

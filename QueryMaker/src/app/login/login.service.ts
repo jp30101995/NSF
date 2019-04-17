@@ -9,7 +9,6 @@ import { Apiurl } from '../shared/apiurl';
 export class LoginService {
   constructor(private http: HttpClient) {}
   login(login: Login): Observable<LoginResponse> {
-    debugger;
     return this.http.post<LoginResponse>(Apiurl.apiurl + 'Authenticate', login);
   }
 }

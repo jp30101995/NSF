@@ -9,7 +9,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     // Get the auth token from the service.
+
     const authToken = this.auth.getAuthorizationToken();
+
     /*
     * The verbose way:
     // Clone the request and replace the original headers with
@@ -19,7 +21,9 @@ export class AuthInterceptor implements HttpInterceptor {
     });
     */
     // Clone the request and set the new header in one step.
+
     const authReq = req.clone({ setHeaders: { Authorization: authToken, 'Content-Type': 'application/json' } });
+
 
     // send cloned request with header to the next handler.
     return next.handle(authReq);

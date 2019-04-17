@@ -24,10 +24,7 @@ const routes: Routes = [
         path: 'customer',
         loadChildren: './customer/customer.module#CustomerModule'
       },
-      // {
-      //   path: 'designyourquery',
-      //   loadChildren: './designyourquery/designyourquery.module#DesignyourqueryModule'
-      // },
+
       {
         path: 'charts',
         loadChildren: './charts/charts.module#ChartsModule'

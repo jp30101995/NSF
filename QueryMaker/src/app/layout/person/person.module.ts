@@ -41,6 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSelectModule,
+    MatRadioModule,
     FlexLayoutModule.withConfig({ addFlexToParent: false })
   ],
   entryComponents: [AddpersonComponent]

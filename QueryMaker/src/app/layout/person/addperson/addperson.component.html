@@ -1,3 +1,107 @@
-<p>
-  addperson works!
-</p>
+<h2 mat-dialog-title>{{ data.Title }}</h2>
+<mat-dialog-content [formGroup]="frmAddPerson" class="mat-typography">
+  <div fxLayoutGap="20px">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="First Name"
+        formControlName="FirstName"
+        [ngClass]="{ 'is-invalid': formFields.FirstName.errors }"
+        [(ngModel)]="data.FirstName"
+      />
+      <mat-error *ngIf="!!formFields.FirstName.errors">
+        <mat-error *ngIf="!!formFields.FirstName.errors.required">First Name is required</mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Middle Name"
+        formControlName="MiddleName"
+        [(ngModel)]="data.MiddleName"
+        [ngClass]="{ 'is-invalid': formFields.MiddleName.errors }"
+      />
+      <mat-error *ngIf="!!formFields.MiddleName.errors">
+        <mat-error *ngIf="!!formFields.MiddleName.errors.required">Middle Name is required</mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input
+          matInput
+          placeholder="Last Name"
+          formControlName="LastName"
+          [(ngModel)]="data.LastName"
+          [ngClass]="{ 'is-invalid': formFields.LastName.errors }"
+        />
+        <mat-error *ngIf="!!formFields.LastName.errors">
+          <mat-error *ngIf="!!formFields.LastName.errors.required">Last Name is required</mat-error>
+        </mat-error>
+      </mat-form-field>
+  </div>
+  <div fxLayoutGap="20px">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Email"
+        formControlName="Email"
+        [(ngModel)]="data.Email"
+        [ngClass]="{ 'is-invalid': formFields.Email.errors }"
+      />
+      <mat-error *ngIf="!!formFields.Email.errors">
+        <mat-error *ngIf="!!formFields.Email.errors.required">Email is required</mat-error>
+        <mat-error *ngIf="!!formFields.Email.errors.email">Email must be a valid email address</mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Phone"
+        formControlName="Phone"
+        [(ngModel)]="data.Phone"
+        [ngClass]="{ 'is-invalid': formFields.Phone.errors }"
+      />
+      <mat-error *ngIf="!!formFields.Phone.errors">
+        <mat-error *ngIf="!!formFields.Phone.errors.required">Phone is required</mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Gender">
+            <mat-option value="option">Male</mat-option>
+            <mat-option value="option">Female</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayoutGap="20px">
+      <mat-form-field>
+          <mat-select placeholder="Qualification">
+              <mat-option value="option">Male</mat-option>
+              <mat-option value="option">Female</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-select placeholder="Relation">
+              <mat-option value="option">Male</mat-option>
+              <mat-option value="option">Female</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-select placeholder="Marital Status">
+              <mat-option value="option">Married</mat-option>
+              <mat-option value="option">UnMarried</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayoutGap="20px">
+        <label class="example-margin">Job Type</label>
+        <mat-radio-group [(ngModel)]="labelPosition">
+            <mat-radio-button class="example-margin" value="after">Service</mat-radio-button>
+            <mat-radio-button class="example-margin" value="before">Self Employeed</mat-radio-button>
+        </mat-radio-group>
+      </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" [mat-dialog-close]="true" [disabled]="!frmAddPerson.valid" (click)="savePerson()">
+    Save
+  </button>
+</mat-dialog-actions>

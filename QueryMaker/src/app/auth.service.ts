@@ -16,27 +16,5 @@ export class AuthService {
     } else {
       return '';
     }
-    // if (localStorage.getItem('authToken')) {
-    //   // return localStorage.getItem('authToken');
-    //   return true;
-    // } else {
-    // const httpOptions = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type': 'application/json'
-    //   })
-    // };
-    // // return '';
-    // this.http.post<string>(this.url, {}, httpOptions)
-    // .subscribe(
-    //   (data: string) => {
-    //     localStorage.setItem('authToken', data);
-    //      //return data['message'];
-    //   },
-    //   error => {
-    //     console.log(error);
-    //      //return '';
-    //   }
-    // );
   }
-  //   }
 }

@@ -41,7 +41,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('authToken', data.Response['Message']);
           localStorage.setItem('isLoggedin', 'true');
           localStorage.setItem('customerId', data.User['Id'].toString());
+          localStorage.setItem('parentId', data['ParentID'].toString());
           localStorage.setItem('customerName', data.User['Username']);
+          localStorage.setItem('menuItem', JSON.stringify(data['modules']));
           this.router.navigate(['/dashboard']);
         } else {
           this.notificationService.openSnackbar(data.Response['Message']);

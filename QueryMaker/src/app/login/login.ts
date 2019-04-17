@@ -19,3 +19,12 @@ export class Response {
   ErrorCode: number;
   Message: string;
 }
+
+export class MenuItem {
+  Id: number;
+  Name: string;
+  Url: string;
+  Icon: string;
+  ParentId: number;
+  // ChildMenu: [];
+}

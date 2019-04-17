@@ -30,7 +30,6 @@ import { SliderComponent } from './slider/slider.component';
         MatRadioModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatFormFieldModule,
         MatSelectModule,
         MatSliderModule,
         FlexLayoutModule.withConfig({addFlexToParent: false})
