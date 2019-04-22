@@ -51,13 +51,15 @@ namespace Query.Data
             person.MaritalStatus = model.person.MaritalStatus;
             person.Education = model.person.Qualification;
             person.JobType = model.person.JobType;
-            _dbEntitites.People.AddOrUpdate(person);
+            person = _dbEntitites.People.Add(person);
+
 
             relation.FromPerson = model.relation.FromPerson;
-            relation.ToPerson = model.relation.ToPerson;
+            relation.ToPerson = person.Id;
             relation.RelationType = model.relation.RelationType;
             _dbEntitites.Relations.AddOrUpdate(relation);
 
+            Save();
             return true;
         }
 

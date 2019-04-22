@@ -92,6 +92,7 @@
       <DependentUpon>QueryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserClass.cs" />
+    <Compile Include="UserManagementClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

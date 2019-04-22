@@ -9,8 +9,9 @@ namespace Query.Models
     public class LoginResponseModel
     {
         public ResponseModel Response { get; set; }
-        public int ParentID { get; set; }
+        
         public UserModel User { get; set;}
-        public IEnumerable<ModuleModel> modules { get; set; }
+        public CustomerModel Customer { get; set; }
+        public IEnumerable<ModuleModel> Modules { get; set; }
     }
 }

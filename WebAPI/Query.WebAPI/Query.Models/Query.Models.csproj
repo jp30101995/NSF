@@ -45,6 +45,7 @@
     <Compile Include="ModuleModel.cs" />
     <Compile Include="PersonModel.cs" />
     <Compile Include="ResponseModel.cs" />
+    <Compile Include="UserManagementModel.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

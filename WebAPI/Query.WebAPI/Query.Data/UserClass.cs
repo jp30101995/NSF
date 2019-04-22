@@ -50,6 +50,7 @@ namespace Query.Data
                 obj.Email = uobj.Email;
                 obj.ParentId = uobj.ParentId;
                 obj.Name = uobj.Name;
+                obj.CommunityName = uobj.CommunityName;
                 return obj;
             }
             return null;

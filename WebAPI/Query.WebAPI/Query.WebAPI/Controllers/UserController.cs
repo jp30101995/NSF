@@ -25,20 +25,30 @@ namespace Query.WebAPI.Controllers
             _userBL = new UserBL();
             _customerBL = new CustomerBL();
         }
-
-        [Authorize]
-        [Route("AddUser")]
-        public void AddUser(UserModel user)
-        {
-            _userBL.AddUser(user);
-        }
-
         [Authorize]
         [Route("AddCustomer")]
         public ResponseModel AddCostumer(CustomerModel customer)
         {
             ResponseModel res = new ResponseModel();
             if (_customerBL.AddCustomer(customer))
+            {
+                res.ErrorCode = 200;
+                res.Message = QueryResource.SuccessfulMsg;
+            }
+            else
+            {
+                res.ErrorCode = (int)HttpStatusCode.InternalServerError;
+                res.Message = QueryResource.InvalidResponse;
+            }
+            return res;
+        }
+
+        [Authorize]
+        [Route("AddUser")]
+        public ResponseModel AddUserManagement(UserManagementModel userm)
+        {
+            ResponseModel res = new ResponseModel();
+            if (_customerBL.AddUserManagement(userm))
             {
                 res.ErrorCode = 200;
                 res.Message = QueryResource.SuccessfulMsg;
@@ -79,6 +89,13 @@ namespace Query.WebAPI.Controllers
         }
 
         [Authorize]
+        [Route("GetUser")]
+        public List<UserManagementModel> GetUsers(int? parentId)
+        {
+            return _customerBL.GetUsers(parentId).ToList();
+        }
+
+        [Authorize]
         [Route("GetCustomer")]
         private CustomerModel GetCustomerFromUserName(string username)
         {
@@ -93,14 +110,13 @@ namespace Query.WebAPI.Controllers
             var objRes = new ResponseModel();
             var user = new UserModel();
             IEnumerable<ModuleModel> modules = _userBL.GetUserModules(login.Username);
-            objResponce.modules = modules;
+            objResponce.Modules = modules;
             UserModel loginrequest = _userBL.GetUserFromUserName(login.Username);
+            objResponce.User = loginrequest;
             if(loginrequest.Role != "SuperAdmin")
             {
                 CustomerModel customer = GetCustomerFromUserName(login.Username);
-                objResponce.ParentID = customer.ParentId ?? 0;
-                user.Id = customer.Id;
-                user.Username = customer.Name;
+                objResponce.Customer = customer;
             }
             if (loginrequest != null)
                 isUsernamePasswordValid = loginrequest.Password == login.Password ? true : false;
