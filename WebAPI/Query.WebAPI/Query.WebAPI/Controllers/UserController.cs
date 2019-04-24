@@ -126,7 +126,7 @@ namespace Query.WebAPI.Controllers
                 objRes.Message = token;
                 objRes.ErrorCode = (int)HttpStatusCode.OK;
                 objResponce.Response = objRes;
-                objResponce.User = user;
+                objResponce.User = loginrequest;
             }
             else
             {
