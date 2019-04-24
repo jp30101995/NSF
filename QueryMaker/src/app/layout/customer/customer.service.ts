@@ -11,7 +11,7 @@ export class CustomerService {
   constructor(private http: HttpClient) {}
   url = Apiurl.apiurl;
   getList(id: string): Observable<CustomerList> {
-    return this.http.get<CustomerList>(this.url + 'GetCustomer?parentId=' + localStorage.getItem('parentId'), {});
+    return this.http.get<CustomerList>(this.url + 'GetCustomer?parentId=' + localStorage.getItem('parentId'));
   }
 
   saveCustomer(customer: Customer): Observable<LoginResponse> {

@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { PersonRoutingModule } from './person-routing.module';
-import { AddpersonComponent } from './addperson/addperson.component';
-import { PersonComponent } from './person.component';
-import { EnumKeyValueListPipe } from './enumlist.pipe';
+import { UserRoutingModule } from './user-routing.module';
+import { AdduserComponent } from './adduser/adduser.component';
 import {
   MatBottomSheetModule,
   MatButtonModule,
@@ -26,13 +24,14 @@ import {
   MatCheckboxModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserComponent } from './user.component';
 @NgModule({
-  declarations: [PersonComponent, AddpersonComponent, EnumKeyValueListPipe],
+  declarations: [UserComponent, AdduserComponent],
   imports: [
     CommonModule,
+    UserRoutingModule,
     CommonModule,
     MatCheckboxModule,
-    PersonRoutingModule,
     MatFormFieldModule,
     MatPaginatorModule,
     MatInputModule,
@@ -42,10 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule,
-    MatRadioModule,
     FlexLayoutModule.withConfig({ addFlexToParent: false })
   ],
-  entryComponents: [AddpersonComponent]
+  entryComponents: [AdduserComponent]
 })
-export class PersonModule {}
+export class UserModule {}

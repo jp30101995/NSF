@@ -27,7 +27,7 @@ export class CustomerComponent implements OnInit {
 
   isAllSelected() {
     const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
+    const numRows = this.dataSource !== undefined ? this.dataSource.data.length : 0;
     return numSelected === numRows;
   }
 

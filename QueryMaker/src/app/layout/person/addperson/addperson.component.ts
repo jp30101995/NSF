@@ -1,10 +1,12 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation, Pipe, PipeTransform } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { PersonService } from '../person.service';
 import { LoginResponse } from 'src/app/login/login';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { Person } from '../person';
+import { Gender, Qualification, Relation, MaritalStatus } from 'src/app/shared/enum-helper/enum';
+
 @Component({
   selector: 'app-addperson',
   templateUrl: './addperson.component.html',
@@ -12,6 +14,10 @@ import { Person } from '../person';
 })
 export class AddpersonComponent implements OnInit {
   frmAddPerson: FormGroup;
+  _gender = Gender;
+  _qualification = Qualification;
+  _realtion = Relation;
+  _maritalStatus = MaritalStatus;
   constructor(
     public dialogRef: MatDialogRef<AddpersonComponent>,
     private formBuilder: FormBuilder,
@@ -21,7 +27,6 @@ export class AddpersonComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    debugger;
     this.frmAddPerson = this.formBuilder.group({
       FirstName: ['', Validators.required],
       Email: ['', [Validators.required, Validators.email]],

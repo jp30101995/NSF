@@ -13,7 +13,7 @@ export class PersonService {
 
   url = Apiurl.apiurl;
   getList(id: string): Observable<CustomerList> {
-    return this.http.get<CustomerList>(this.url + 'GetPerson?personId=' + 0, {});
+    return this.http.get<CustomerList>(this.url + 'GetPerson?personId=' + 0);
   }
 
   savePerson(person: Person): Observable<LoginResponse> {

@@ -6,6 +6,8 @@ import { from } from 'rxjs';
 import { Login, LoginResponse } from './login';
 import { HttpResponse } from '@angular/common/http';
 import { NotificationService } from '../shared/services/notification.service';
+import { isNull } from '@angular/compiler/src/output/output_ast';
+import { isNullOrUndefined } from 'util';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -36,14 +38,22 @@ export class LoginComponent implements OnInit {
     const login = this.FrmLogin.value;
     const result = this.loginService.login(login).subscribe(
       (data: LoginResponse) => {
-        debugger;
         if (data.Response['ErrorCode'] === 200) {
           localStorage.setItem('authToken', data.Response['Message']);
           localStorage.setItem('isLoggedin', 'true');
-          localStorage.setItem('customerId', data.User['Id'].toString());
-          localStorage.setItem('parentId', data['ParentID'].toString());
-          localStorage.setItem('customerName', data.User['Username']);
-          localStorage.setItem('menuItem', JSON.stringify(data['modules']));
+
+          if (data.User != null) {
+            localStorage.setItem('userId', !isNullOrUndefined(data.User.Id) ? data.User.Id.toString() : '');
+            localStorage.setItem('userName', !isNullOrUndefined(data.User.Username) ? data.User.Username : '');
+          }
+          if (data.Customer != null) {
+            localStorage.setItem('parentId', data.Customer.ParentId.toString());
+            localStorage.setItem('customerId', data.Customer.Id.toString());
+            localStorage.setItem('customerName', data.Customer.Name);
+            localStorage.setItem('communityName', data.Customer.CommunityName.toString());
+          }
+          localStorage.setItem('menuItem', JSON.stringify(data.Modules));
+
           this.router.navigate(['/dashboard']);
         } else {
           this.notificationService.openSnackbar(data.Response['Message']);

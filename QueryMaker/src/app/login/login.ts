@@ -1,3 +1,5 @@
+import { Customer } from '../layout/customer/customer';
+
 export class Login {
   Id: number;
   Username: string;
@@ -6,7 +8,8 @@ export class Login {
 export class LoginResponse {
   Response: Response;
   User: UserResponse;
-  ParentID: number;
+  Customer: Customer;
+  Modules: MenuItem;
 }
 
 export class UserResponse {

@@ -26,17 +26,17 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input
-          matInput
-          placeholder="Last Name"
-          formControlName="LastName"
-          [(ngModel)]="data.LastName"
-          [ngClass]="{ 'is-invalid': formFields.LastName.errors }"
-        />
-        <mat-error *ngIf="!!formFields.LastName.errors">
-          <mat-error *ngIf="!!formFields.LastName.errors.required">Last Name is required</mat-error>
-        </mat-error>
-      </mat-form-field>
+      <input
+        matInput
+        placeholder="Last Name"
+        formControlName="LastName"
+        [(ngModel)]="data.LastName"
+        [ngClass]="{ 'is-invalid': formFields.LastName.errors }"
+      />
+      <mat-error *ngIf="!!formFields.LastName.errors">
+        <mat-error *ngIf="!!formFields.LastName.errors.required">Last Name is required</mat-error>
+      </mat-error>
+    </mat-form-field>
   </div>
   <div fxLayoutGap="20px">
     <mat-form-field>
@@ -65,39 +65,35 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-        <mat-select placeholder="Gender">
-            <mat-option value="option">Male</mat-option>
-            <mat-option value="option">Female</mat-option>
-        </mat-select>
+      <mat-select placeholder="Gender">
+        <mat-option [value]="item.key" *ngFor="let item of (_gender | enumKeyValuelist)">{{ item.value }}</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
   <div fxLayoutGap="20px">
-      <mat-form-field>
-          <mat-select placeholder="Qualification">
-              <mat-option value="option">Male</mat-option>
-              <mat-option value="option">Female</mat-option>
-          </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-          <mat-select placeholder="Relation">
-              <mat-option value="option">Male</mat-option>
-              <mat-option value="option">Female</mat-option>
-          </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-          <mat-select placeholder="Marital Status">
-              <mat-option value="option">Married</mat-option>
-              <mat-option value="option">UnMarried</mat-option>
-          </mat-select>
-      </mat-form-field>
-    </div>
-    <div fxLayoutGap="20px">
-        <label class="example-margin">Job Type</label>
-        <mat-radio-group [(ngModel)]="labelPosition">
-            <mat-radio-button class="example-margin" value="after">Service</mat-radio-button>
-            <mat-radio-button class="example-margin" value="before">Self Employeed</mat-radio-button>
-        </mat-radio-group>
-      </div>
+    <mat-form-field>
+      <mat-select placeholder="Qualification">
+          <mat-option [value]="item.key" *ngFor="let item of (_qualification | enumKeyValuelist)">{{ item.value }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Relation">
+          <mat-option [value]="item.key" *ngFor="let item of (_realtion | enumKeyValuelist)">{{ item.value }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Marital Status">
+          <mat-option [value]="item.key" *ngFor="let item of (_maritalStatus | enumKeyValuelist)">{{ item.value }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayoutGap="20px">
+    <label class="example-margin">Job Type</label>
+    <mat-radio-group>
+      <mat-radio-button class="example-margin" value="after">Service</mat-radio-button>
+      <mat-radio-button class="example-margin" value="before">Self Employeed</mat-radio-button>
+    </mat-radio-group>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button class="mat-raised-button" (click)="close()">Close</button>

@@ -8,8 +8,7 @@ import { MenuItem } from 'src/app/login/login';
 })
 export class SidebarComponent implements OnInit {
   public showMenu: string;
-  debugger;
-  
+
   navItems: MenuItem[] = JSON.parse(localStorage.getItem('menuItem'));
   constructor() {}
 

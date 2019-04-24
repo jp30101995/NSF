@@ -12,7 +12,7 @@ import { PersonService } from './person.service';
   styleUrls: ['./person.component.scss']
 })
 export class PersonComponent implements OnInit {
-  displayedColumns = ['Select', 'Id', 'Name', 'Email', 'Phone', 'Qualification', 'Marital Status', 'Relation', 'Actions'];
+  displayedColumns = ['Select', 'Id', 'Name', 'Email', 'Phone',  'Actions'];
   dataSource: MatTableDataSource<Person>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -27,9 +27,9 @@ export class PersonComponent implements OnInit {
 
   isAllSelected() {
     const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
+    const numRows = this.dataSource !== undefined ? this.dataSource.data.length : 0;
     return numSelected === numRows;
-  }
+}
 
   masterToggle() {
     this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(row => this.selection.select(row));
