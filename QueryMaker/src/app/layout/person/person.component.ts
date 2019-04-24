@@ -6,20 +6,26 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { AddpersonComponent } from './addperson/addperson.component';
 import { Person } from './person';
 import { PersonService } from './person.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss']
 })
 export class PersonComponent implements OnInit {
-  displayedColumns = ['Select', 'Id', 'Name', 'Email', 'Phone',  'Actions'];
+  displayedColumns = ['Select', 'Id', 'Name', 'Email', 'Phone', 'Actions'];
   dataSource: MatTableDataSource<Person>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   selection = new SelectionModel<Person>(true, []);
 
-  constructor(public dialog: MatDialog, private notificationService: NotificationService, private personService: PersonService) {}
+  constructor(
+    public dialog: MatDialog,
+    private router: Router,
+    private notificationService: NotificationService,
+    private personService: PersonService
+  ) {}
 
   ngOnInit() {
     this.getAllPerson();
@@ -29,7 +35,7 @@ export class PersonComponent implements OnInit {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource !== undefined ? this.dataSource.data.length : 0;
     return numSelected === numRows;
-}
+  }
 
   masterToggle() {
     this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(row => this.selection.select(row));
@@ -40,6 +46,11 @@ export class PersonComponent implements OnInit {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.Id + 1}`;
+  }
+
+  addMember() {
+    debugger;
+    this.router.navigate(['/member']);
   }
 
   openDialog(row: Person) {
@@ -60,7 +71,7 @@ export class PersonComponent implements OnInit {
         FirstName: '',
         MidddleName: '',
         LastName: '',
-        Phone: '',
+        Phone: ''
         // Gender: ''
       };
     }

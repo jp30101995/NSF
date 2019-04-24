@@ -10,7 +10,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard'
+        redirectTo: 'dashboard',
+        
       },
       {
         path: 'dashboard',
@@ -52,6 +53,10 @@ const routes: Routes = [
       {
         path: 'blank-page',
         loadChildren: './blank-page/blank-page.module#BlankPageModule'
+      },
+      {
+        path: 'member',
+        loadChildren: './member/member.module#MemberModule'
       }
     ]
   }
