@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 //import {ToastComponent} from '../shared/toast/toast.component';
 import { PersonNode } from '../personnode/personnode.interface';
 import { FamilyTree } from './familytree.class';
@@ -11,7 +11,8 @@ import { TreeService } from 'src/app/shared/services/tree.service';
 @Component({
   selector: 'app-familytree',
   templateUrl: './familytree.component.html',
-  styleUrls: ['./familytree.component.scss']
+  styleUrls: ['./familytree.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FamilyTreeComponent implements OnInit, OnDestroy {
 

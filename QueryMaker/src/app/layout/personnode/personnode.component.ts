@@ -14,15 +14,15 @@ export class PersonNodeComponent implements OnInit {
   @Input() person;
   @Output() updateTree = new EventEmitter();
 
-  isNodeDeleted = false;
+  public isNodeDeleted = false;
   // To determine whether or not to dosplay the anchor tags in a node
-  showCheck = false;
+  public showCheck = false;
   // To determine whether or not a node should display it's editor
-  isEditing = false;
+  public isEditing = false;
   // To determine whether or not a node should display it's child creator
-  isCreatingChild = false;
+  public isCreatingChild = false;
   // To determine whether or not a node's children should be visible
-  showChildren = true;
+  public showChildren = true;
   // To determine if the click action in a button originated from one of the anchor children
   private childClicked = false;
 
@@ -35,6 +35,7 @@ export class PersonNodeComponent implements OnInit {
   }
 
   toggleCheck() {
+    debugger;
     this.showCheck = !this.showCheck;
   }
 
