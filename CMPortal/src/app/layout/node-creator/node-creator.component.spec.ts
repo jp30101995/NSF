@@ -1,6 +1,9 @@
+/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
-import { NodeCreatorComponent } from './nodecreator.component';
+import { NodeCreatorComponent } from './node-creator.component';
 
 describe('NodeCreatorComponent', () => {
   let component: NodeCreatorComponent;
