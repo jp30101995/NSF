@@ -54,9 +54,13 @@ const routes: Routes = [
         path: 'blank-page',
         loadChildren: './blank-page/blank-page.module#BlankPageModule'
       },
+      // {
+      //   path: 'member',
+      //   loadChildren: './member/member.module#MemberModule'
+      // },
       {
-        path: 'member',
-        loadChildren: './member/member.module#MemberModule'
+        path: 'familytree',
+        loadChildren: './familytree/familytree.module#FamilytreeModule'
       }
     ]
   }

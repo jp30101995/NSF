@@ -50,7 +50,8 @@ export class PersonComponent implements OnInit {
 
   addMember() {
     debugger;
-    this.router.navigate(['/member']);
+    //this.router.navigate(['/member']);
+    this.router.navigate(['/familytree']);
   }
 
   openDialog(row: Person) {

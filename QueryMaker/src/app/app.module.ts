@@ -7,13 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatSnackBarModule } from '@angular/material';
 
 import { AuthService } from './auth.service';
 import { httpInterceptorProviders } from './http-interceptor/index';
+
+
+
+
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
   /* for development
@@ -28,6 +32,7 @@ export const createTranslateLoader = (http: HttpClient) => {
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    HttpModule,
     BrowserModule,
     AppRoutingModule,
     MatSnackBarModule,
@@ -46,4 +51,4 @@ export const createTranslateLoader = (http: HttpClient) => {
   providers: [AuthService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

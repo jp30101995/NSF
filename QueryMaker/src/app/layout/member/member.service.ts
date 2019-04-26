@@ -3,8 +3,8 @@ import { TodoItemNode } from './member';
 import { BehaviorSubject } from 'rxjs';
 const TREE_DATA = {
   Groceries: {
-    'Almond Meal flour': null,
-    'Organic eggs': null,
+    'Almond Meal flour': [''],
+    'Organic eggs': [],
     'Protein Powder': null,
     Fruits: {
       Apple: null,

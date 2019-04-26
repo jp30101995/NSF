@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "d:\\SourceCode\\Learning\\NSF\\WebAPI\\Query.WebAPI\\Query.Business\\Query.Business.csproj",
+  "TargetFramework": "v4.5.2",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

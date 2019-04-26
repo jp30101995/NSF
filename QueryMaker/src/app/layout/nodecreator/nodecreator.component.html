@@ -1,0 +1,24 @@
+<div class="note-creator shadow-2">
+  <form (ngSubmit)="createPerson()">
+    <input
+      type="text"
+      [(ngModel)]="getPerson().data.name"
+      name="title"
+      class="col-xs-8"
+      placeholder="Fullname"
+      name="title">
+    <div class="actions col-xs-4 row between-xs">
+      <button
+        type="submit"
+        class="btn-light">
+        Done
+      </button>
+      <button
+        (click)="closeCreatorDialog()"
+        type="button"
+        class="btn-danger_">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
