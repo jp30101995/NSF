@@ -113,7 +113,7 @@ namespace Query.WebAPI.Controllers
             objResponce.Modules = modules;
             UserModel loginrequest = _userBL.GetUserFromUserName(login.Username);
             objResponce.User = loginrequest;
-            if(loginrequest.Role != "SuperAdmin")
+            if(loginrequest != null && loginrequest.Role != "SuperAdmin")
             {
                 CustomerModel customer = GetCustomerFromUserName(login.Username);
                 objResponce.Customer = customer;
