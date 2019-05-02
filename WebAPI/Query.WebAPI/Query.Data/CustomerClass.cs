@@ -86,7 +86,7 @@ namespace Query.Data
             }
         }
 
-        public IEnumerable<CustomerModel> GetCustomers(int? parentId)
+        public IEnumerable<CustomerModel> GetCustomers(GridModel model)
         {
             var customer = new Customer();
             //int? pid = 0;
@@ -95,7 +95,8 @@ namespace Query.Data
             //else
             //    pid = parentId;
             return from objCustomre in _dbEntitites.Customers
-                   where objCustomre.ParentId == parentId
+                   where objCustomre.ParentId == model.parentId && string.IsNullOrEmpty(model.param.search.value) ? true : 
+                   (objCustomre.Name.Contains(model.param.search.value) || objCustomre.Email.Contains(model.param.search.value) || objCustomre.CommunityName.Contains(model.param.search.value) || objCustomre.ContactNo.Contains(model.param.search.value))
                    orderby objCustomre.Id descending
                    select new CustomerModel
                    {

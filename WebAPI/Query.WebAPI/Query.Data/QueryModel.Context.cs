@@ -12,6 +12,8 @@ namespace Query.Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class QueryDBEntities : DbContext
     {
@@ -32,5 +34,20 @@ namespace Query.Data
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Module> Modules { get; set; }
         public virtual DbSet<ModuleRight> ModuleRights { get; set; }
+        public virtual DbSet<Family> Families { get; set; }
+    
+        [DbFunction("QueryDBEntities", "GetFamilyTreeView")]
+        public virtual IQueryable<GetFamilyTreeView_Result> GetFamilyTreeView(Nullable<int> familyId, Nullable<int> communityId)
+        {
+            var familyIdParameter = familyId.HasValue ?
+                new ObjectParameter("familyId", familyId) :
+                new ObjectParameter("familyId", typeof(int));
+    
+            var communityIdParameter = communityId.HasValue ?
+                new ObjectParameter("communityId", communityId) :
+                new ObjectParameter("communityId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<GetFamilyTreeView_Result>("[QueryDBEntities].[GetFamilyTreeView](@familyId, @communityId)", familyIdParameter, communityIdParameter);
+        }
     }
 }

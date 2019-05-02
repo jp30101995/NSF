@@ -6,8 +6,8 @@ D:\SourceCode\Learning\WebAPI\Query.WebAPI\Query.Common\obj\Debug\Query.Common.d
 D:\SourceCode\Learning\WebAPI\Query.WebAPI\Query.Common\obj\Debug\Query.Common.pdb
 D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Common\bin\Debug\Query.Common.dll
 D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Common\bin\Debug\Query.Common.pdb
-D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Common\obj\Debug\Query.Common.csprojResolveAssemblyReference.cache
 D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Common\obj\Debug\Query.Common.QueryResource.resources
 D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Common\obj\Debug\Query.Common.csproj.GenerateResource.Cache
 D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Common\obj\Debug\Query.Common.dll
 D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Common\obj\Debug\Query.Common.pdb
+D:\SourceCode\Learning\NSF\WebAPI\Query.WebAPI\Query.Common\obj\Debug\Query.Common.csprojResolveAssemblyReference.cache

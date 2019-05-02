@@ -8,6 +8,11 @@
     <EntitySet Name="Customers" EntityType="QueryDBModel.Customer" />
     <EntitySet Name="Modules" EntityType="QueryDBModel.Module" />
     <EntitySet Name="ModuleRights" EntityType="QueryDBModel.ModuleRight" />
+    <EntitySet Name="Families" EntityType="QueryDBModel.Family" />
+    <FunctionImport Name="GetFamilyTreeView" IsComposable="true" ReturnType="Collection(QueryDBModel.GetFamilyTreeView_Result)">
+      <Parameter Name="familyId" Mode="In" Type="Int32" />
+      <Parameter Name="communityId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Person">
     <Key>
@@ -21,6 +26,11 @@
     <Property Name="Education" Type="Int32" />
     <Property Name="JobType" Type="Int32" />
     <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FatherId" Type="Int32" />
+    <Property Name="MotherId" Type="Int32" />
+    <Property Name="IsWife" Type="Int32" />
+    <Property Name="FamilyId" Type="Int32" Nullable="false" />
+    <Property Name="CommunityId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Relation">
     <Key>
@@ -78,4 +88,20 @@
     <Property Name="ModuleId" Type="Int32" />
     <Property Name="UserId" Type="Int32" />
   </EntityType>
+  <EntityType Name="Family">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="GetFamilyTreeView_Result">
+    <Property Type="Int32" Name="Id" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="MotherID" Nullable="true" />
+    <Property Type="Int32" Name="FatherID" Nullable="true" />
+    <Property Type="String" Name="FatherName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="MotherName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Level" Nullable="true" />
+  </ComplexType>
 </Schema>

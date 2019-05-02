@@ -82,10 +82,11 @@ namespace Query.WebAPI.Controllers
 
 
         [Authorize]
+        [HttpPost]
         [Route("GetCustomer")]
-        public List<CustomerModel> GetCustomer(int? parentId)
+        public List<CustomerModel> GetCustomer(GridModel model)
         {
-            return _customerBL.GetCustomers(parentId).ToList();
+            return _customerBL.GetCustomers(model).ToList();
         }
 
         [Authorize]

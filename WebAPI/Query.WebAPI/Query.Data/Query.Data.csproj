@@ -55,6 +55,12 @@
     <Compile Include="Customer.cs">
       <DependentUpon>QueryModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Family.cs">
+      <DependentUpon>QueryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetFamilyTreeView_Result.cs">
+      <DependentUpon>QueryModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Module.cs">
       <DependentUpon>QueryModel.tt</DependentUpon>
     </Compile>

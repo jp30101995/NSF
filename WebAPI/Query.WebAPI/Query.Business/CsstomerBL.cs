@@ -32,9 +32,37 @@ namespace Query.Business
         {
             return _userm.GetUserManagements(parentId);
         }
-        public IEnumerable<CustomerModel> GetCustomers(int? parentId)
+        public IEnumerable<CustomerModel> GetCustomers(GridModel model)
         {
-            return _customer.GetCustomers(parentId);
+            var custs = _customer.GetCustomers(model);
+
+            if (model.param.order.Count > 0)
+            {
+                foreach (var item in model.param.order)
+                {
+
+                    if (item.dir == "asc")
+                    {
+                        switch (item.column)
+                        {
+                            case 1:
+                                custs = custs.OrderBy(x => x.Id);
+                                break;
+                            case 2:
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+
+            }
+            return custs;
         }
 
         public bool DeleteCustomers(int? customerId)

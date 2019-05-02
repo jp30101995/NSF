@@ -17,6 +17,13 @@
           <Property Name="Type" Type="smallint" Nullable="false" />
           <Property Name="ParentId" Type="int" />
         </EntityType>
+        <EntityType Name="Family">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Module">
           <Key>
             <PropertyRef Name="Id" />
@@ -48,6 +55,11 @@
           <Property Name="Education" Type="int" />
           <Property Name="JobType" Type="int" />
           <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="FatherId" Type="int" />
+          <Property Name="MotherId" Type="int" />
+          <Property Name="IsWife" Type="int" />
+          <Property Name="FamilyId" Type="int" Nullable="false" />
+          <Property Name="CommunityId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Relations">
           <Key>
@@ -74,8 +86,26 @@
           <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="RoleId" Type="int" Nullable="false" />
         </EntityType>
+        <Function Name="GetFamilyTreeView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="familyId" Type="int" Mode="In" />
+          <Parameter Name="communityId" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" />
+                <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+                <Property Name="MotherID" Type="int" />
+                <Property Name="FatherID" Type="int" />
+                <Property Name="FatherName" Type="nvarchar" MaxLength="200" />
+                <Property Name="MotherName" Type="nvarchar" MaxLength="200" />
+                <Property Name="Level" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <EntityContainer Name="QueryDBModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Family" EntityType="Self.Family" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ModuleRights" EntityType="Self.ModuleRights" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
@@ -95,6 +125,11 @@
           <EntitySet Name="Customers" EntityType="QueryDBModel.Customer" />
           <EntitySet Name="Modules" EntityType="QueryDBModel.Module" />
           <EntitySet Name="ModuleRights" EntityType="QueryDBModel.ModuleRight" />
+          <EntitySet Name="Families" EntityType="QueryDBModel.Family" />
+          <FunctionImport Name="GetFamilyTreeView" IsComposable="true" ReturnType="Collection(QueryDBModel.GetFamilyTreeView_Result)">
+            <Parameter Name="familyId" Mode="In" Type="Int32" />
+            <Parameter Name="communityId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Person">
           <Key>
@@ -108,6 +143,11 @@
           <Property Name="Education" Type="Int32" />
           <Property Name="JobType" Type="Int32" />
           <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FatherId" Type="Int32" />
+          <Property Name="MotherId" Type="Int32" />
+          <Property Name="IsWife" Type="Int32" />
+          <Property Name="FamilyId" Type="Int32" Nullable="false" />
+          <Property Name="CommunityId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Relation">
           <Key>
@@ -165,6 +205,22 @@
           <Property Name="ModuleId" Type="Int32" />
           <Property Name="UserId" Type="Int32" />
         </EntityType>
+        <EntityType Name="Family">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="GetFamilyTreeView_Result">
+          <Property Type="Int32" Name="Id" Nullable="true" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="MotherID" Nullable="true" />
+          <Property Type="Int32" Name="FatherID" Nullable="true" />
+          <Property Type="String" Name="FatherName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="MotherName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="Level" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -174,6 +230,11 @@
           <EntitySetMapping Name="People">
             <EntityTypeMapping TypeName="QueryDBModel.Person">
               <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="CommunityId" ColumnName="CommunityId" />
+                <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+                <ScalarProperty Name="IsWife" ColumnName="IsWife" />
+                <ScalarProperty Name="MotherId" ColumnName="MotherId" />
+                <ScalarProperty Name="FatherId" ColumnName="FatherId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="JobType" ColumnName="JobType" />
                 <ScalarProperty Name="Education" ColumnName="Education" />
@@ -247,6 +308,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Families">
+            <EntityTypeMapping TypeName="QueryDBModel.Family">
+              <MappingFragment StoreEntitySet="Family">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetFamilyTreeView" FunctionName="QueryDBModel.Store.GetFamilyTreeView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QueryDBModel.GetFamilyTreeView_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MotherID" ColumnName="MotherID" />
+                <ScalarProperty Name="FatherID" ColumnName="FatherID" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

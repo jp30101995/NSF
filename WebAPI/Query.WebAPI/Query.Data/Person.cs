@@ -22,5 +22,10 @@ namespace Query.Data
         public Nullable<int> Education { get; set; }
         public Nullable<int> JobType { get; set; }
         public string UserId { get; set; }
+        public Nullable<int> FatherId { get; set; }
+        public Nullable<int> MotherId { get; set; }
+        public Nullable<int> IsWife { get; set; }
+        public int FamilyId { get; set; }
+        public int CommunityId { get; set; }
     }
 }

@@ -4,6 +4,11 @@
     <EntitySetMapping Name="People">
       <EntityTypeMapping TypeName="QueryDBModel.Person">
         <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="CommunityId" ColumnName="CommunityId" />
+          <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+          <ScalarProperty Name="IsWife" ColumnName="IsWife" />
+          <ScalarProperty Name="MotherId" ColumnName="MotherId" />
+          <ScalarProperty Name="FatherId" ColumnName="FatherId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="JobType" ColumnName="JobType" />
           <ScalarProperty Name="Education" ColumnName="Education" />
@@ -77,5 +82,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Families">
+      <EntityTypeMapping TypeName="QueryDBModel.Family">
+        <MappingFragment StoreEntitySet="Family">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetFamilyTreeView" FunctionName="QueryDBModel.Store.GetFamilyTreeView">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QueryDBModel.GetFamilyTreeView_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MotherID" ColumnName="MotherID" />
+          <ScalarProperty Name="FatherID" ColumnName="FatherID" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>
