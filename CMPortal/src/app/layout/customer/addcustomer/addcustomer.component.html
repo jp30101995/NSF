@@ -1,0 +1,148 @@
+<!-- <h2 mat-dialog-title>{{ data.Title }}</h2>
+<mat-dialog-content [formGroup]="frmAddCustomer" class="mat-typography">
+  <div fxLayoutGap="20px">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Name"
+        formControlName="Name"
+        [ngClass]="{ 'is-invalid': formFields.Name.errors }"
+        [(ngModel)]="data.Name"
+      />
+      <div *ngIf="!!formFields.Name.errors">
+        <div *ngIf="!!formFields.Name.errors.required">Name is required</div>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Community Name"
+        formControlName="CommunityName"
+        [(ngModel)]="data.CommunityName"
+        [ngClass]="{ 'is-invalid': formFields.CommunityName.errors }"
+      />
+      <div *ngIf="!!formFields.CommunityName.errors">
+        <div *ngIf="!!formFields.CommunityName.errors.required">Community Name is required</div>
+      </div>
+    </mat-form-field>
+  </div>
+  <div fxLayoutGap="20px">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Email"
+        formControlName="Email"
+        [(ngModel)]="data.Email"
+        [ngClass]="{ 'is-invalid': formFields.Email.errors }"
+      />
+      <div *ngIf="!!formFields.Email.errors">
+        <div *ngIf="!!formFields.Email.errors.required">Email is required</div>
+        <div *ngIf="!!formFields.Email.errors.email">Email must be a valid email address</div>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="ContactNo"
+        formControlName="ContactNo"
+        [(ngModel)]="data.ContactNo"
+        [ngClass]="{ 'is-invalid': formFields.ContactNo.errors }"
+      />
+      <div *ngIf="!!formFields.ContactNo.errors">
+        <div *ngIf="!!formFields.ContactNo.errors.required">ContactNo is required</div>
+      </div>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" [mat-dialog-close]="true" [disabled]="!frmAddCustomer.valid" (click)="saveCustomer()">
+    Save
+  </button>
+</mat-dialog-actions> -->
+
+<form class="form-horizontal" id="add-form" [formGroup]="frmAddCustomer">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-content">
+          <div class="form-group row">
+            <div class="col-md-6">
+              <label class="col-md-8 form-control-label" for="name">Name</label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  id="name"
+                  [ngClass]="{ 'is-invalid': submitted && !!formFields.Name.errors }"
+                  formControlName="Name"
+                  class="form-control"
+                  placeholder="Name"
+                />
+                <div *ngIf="submitted && !!formFields.Name.errors" class="invalid-feedback">
+                  <div *ngIf="!!formFields.Name.errors.required">Name is required</div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <label class="col-md-8 control-label">Community Name</label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  [ngClass]="{ 'is-invalid': submitted &&  !!formFields.CommunityName.errors }"
+                  class="form-control"
+                  formControlName="CommunityName"
+                  placeholder="Community Name"
+                />
+                <div *ngIf="submitted && !!formFields.CommunityName.errors" class="invalid-feedback">
+                  <div *ngIf="!!formFields.CommunityName.errors.required">Community Name is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-6">
+              <label class="col-md-8 control-label">Email</label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && !!formFields.Email.errors }"
+                  placeholder="name@example.com"
+                  formControlName="Email"
+                />
+                <div *ngIf="submitted && !!formFields.Email.errors.required" class="invalid-feedback">Email is required</div>
+                <div *ngIf="!!formFields.Email.errors.email" class="invalid-feedback">Email must be a valid email address</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="col-md-8 control-label">ContactNo</label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && !!formFields.ContactNo.errors }"
+                  placeholder="Phone"
+                  formControlName="ContactNo"
+                />
+                <div *ngIf="submitted && !!formFields.ContactNo.errors" class="invalid-feedback">
+                  <div *ngIf="!!formFields.ContactNo.errors.required">Contact No is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveCustomer()">Save</button>
+        <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Cross click')">Close</button>
+      </div>
+    </div>
+  </div>
+</form>

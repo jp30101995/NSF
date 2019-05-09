@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { MenuItem } from 'src/app/login/login';
 
 @Component({
     selector: 'app-sidebar',
@@ -14,7 +15,7 @@ export class SidebarComponent implements OnInit {
     pushRightClass: string;
 
     @Output() collapsedEvent = new EventEmitter<boolean>();
-
+    navItems: MenuItem[] = JSON.parse(localStorage.getItem('menuItem'));
     constructor(private translate: TranslateService, public router: Router) {
         this.router.events.subscribe(val => {
             if (

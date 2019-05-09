@@ -1,0 +1,55 @@
+<!-- <div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex>
+  <div fxFlex>
+    <button style="float:right" mat-mini-fab color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div> -->
+<div [@routerTransition]>
+  <app-page-header [heading]="'Customer List'" [icon]="'fa fa-th-list'"></app-page-header>
+  <div class="page-header">
+    <button class="my-2 my-sm-0 btn btn-primary" (click)="openDialog(content)">Add</button>
+    <ng-template #content let-c="close" let-d="dismiss">
+      <p>Hello</p>
+    </ng-template>
+    <hr />
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table datatable [dtOptions]="dtOptions" class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" style="width:100%">
+        <thead>
+          <tr>
+            <th style="width:5%">Id</th>
+            <th style="width:15%">Name</th>
+            <th style="width:20%">Email</th>
+            <th style="width:10%">Phone</th>
+            <th style="width:15%">Community Name</th>
+            <th style="width:10%">Actions</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="customers?.length != 0">
+          <tr *ngFor="let cust of customers">
+            <td>{{ cust.Id }}</td>
+            <td>{{ cust.Name }}</td>
+            <td>{{ cust.Email }}</td>
+            <td>{{ cust.ContactNo }}</td>
+            <td>{{ cust.CommunityName }}</td>
+            <td>
+                <a  class="btn btn-sm btn-clean btn-icon btn-icon-md  btn-primary" (click)="openDialog(cust)" title="View">
+                    <i class="fa fa-pencil"></i></a>
+                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md btn-danger" title="View">
+                        <i class="fa fa-trash"></i></a>
+              <!-- <a class="btn btn-primary  btn-sm btn-clean btn-icon btn-icon-md" (click)="openDialog(cust)"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
+              <a class="btn btn-danger btn-sm" (click)="openDialog(cust)"> <i class="fa fa-trash" ></i></a> -->
+            </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="customers?.length == 0">
+          <tr>
+            <td colspan="3" class="no-data-available">No data found!</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
